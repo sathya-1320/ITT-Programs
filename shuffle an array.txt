@@ -1,0 +1,26 @@
+class Solution {
+    private int[] original;
+    private int[] array;
+    private Random rand;
+
+    public Solution(int[] nums) {
+        this.original = nums.clone();
+        this.array = nums;
+        this.rand = new Random();
+    }
+    
+    public int[] reset() {
+        this.array = this.original.clone();
+        return this.array;
+    }
+    
+    public int[] shuffle() {
+        for (int i = array.length - 1; i > 0; i--) {
+            int j = rand.nextInt(i + 1);
+            int temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+        return this.array;
+    }
+}
